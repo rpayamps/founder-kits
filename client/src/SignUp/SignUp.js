@@ -20,7 +20,7 @@ function SignUp({ onLogin }) {
         }),
       })
         .then((r) => r.json())
-        .then(onLogin);
+        .then(json => onLogin(json))
     }
   
     return (

@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 2022_04_28_151806) do
     t.string "bio"
     t.string "referral_code"
     t.string "profile_pic"
+    t.string "username"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
