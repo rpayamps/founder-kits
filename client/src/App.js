@@ -16,10 +16,9 @@ function App() {
       if (resp.ok) {
         resp.json().then((user) => setUser(user));
       }
-    });
+    })
+    .catch(error => console.log("Auto-login failure.", error));
   }, []);
-
-
 
   function handlelogin (user) {
     console.log(user)
@@ -30,16 +29,10 @@ return (
   <div className="App">
     <Navbar user={user}/>
       <Switch>
-          {/* <Route exact path="/">
-            <Home />
-          </Route> */}
-           {/* <Route path="/mypage">
-            <MyPage/>
-          </Route> */}
-          <Route  path="/login">
+          <Route path="/login">
             <Login onLogin={handlelogin} setUser={setUser}/>
           </Route>
-          <Route  path="/signup">
+          <Route path="/signup">
             <Signup setUser={setUser} onLogin={handlelogin}/>
           </Route> 
           <Route exact path="/" >
