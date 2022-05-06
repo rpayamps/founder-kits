@@ -1,13 +1,14 @@
 import {React, useEffect, useState} from "react"
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router';
 import './App.css';
 import Login from "./Login/Login";
 import Home from "./Home/Home"
 import Signup from "./SignUp/SignUp"
+import Navbar from "./Navbar/Navbar"
 
 function App() {
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     // auto-login
@@ -18,11 +19,7 @@ function App() {
     });
   }, []);
 
-  if (!!user.username) {
-      return <h2>Welcome, {user.username}!</h2> && <Home/>;
-    }else{
-        <Home/> 
-    }
+
 
   function handlelogin (user) {
     console.log(user)
@@ -31,22 +28,23 @@ function App() {
 
 return (
   <div className="App">
+    <Navbar user={user}/>
       <Switch>
-          <Route exact path="/">
+          {/* <Route exact path="/">
             <Home />
-          </Route>
-          <Route path="/home" >
-            <Home />
-          </Route>
+          </Route> */}
            {/* <Route path="/mypage">
             <MyPage/>
           </Route> */}
-          <Route path="/login">
+          <Route  path="/login">
             <Login onLogin={handlelogin} setUser={setUser}/>
           </Route>
-          <Route path="/signup">
-            <Signup setUser={setUser}/>
+          <Route  path="/signup">
+            <Signup setUser={setUser} onLogin={handlelogin}/>
           </Route> 
+          <Route exact path="/" >
+            <Home />
+          </Route>
       </Switch>
   </div>
 );

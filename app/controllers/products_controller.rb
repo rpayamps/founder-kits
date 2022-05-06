@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
     def index
-        products = Products.all
+        products = Product.all
         render json: products, status: :ok
     end 
 
@@ -9,6 +9,6 @@ class ProductsController < ApplicationController
         product = Product.find(params[:id])
         render json: product, status: :ok
     rescue ActiveRecord::RecordNotFound
-        render json: { error: "Artist not found" }, status: :not_found
+        render json: { error: "Product not found" }, status: :not_found
     end
 end

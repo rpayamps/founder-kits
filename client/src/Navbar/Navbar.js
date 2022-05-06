@@ -1,11 +1,21 @@
 import React from 'react'
-import {NavLink} from "react-router-dom"
+import {Link} from "react-router-dom"
+import {v4 as uuid} from "uuid"
 import "./Navbar.css"
 
 
 
 
 function Navbar ({onLogout, user}) {
+
+    const linkTarget = {
+        pathname: "/login",
+        key: uuid(), // we could use Math.random, but that's not guaranteed unique.
+        state: {
+          applied: true
+        }
+      };
+
 
     function handleLogout() {
         console.log("logout clicked")
@@ -14,22 +24,23 @@ function Navbar ({onLogout, user}) {
         }).then(() => onLogout());
       }
 
- console.log(!!user.username)
-    if  (!!user.username) {
-        return  <header>
+ console.log(!!user)
+return (
+
+    user ? 
+    
+        <header>
              <button onClick={handleLogout}>Logout</button>
              <h2>Welcome, {user.username}!</h2>
-                </header>
-                
-    } else {
-
-    return (
+        </header>   
+         :
         <div className="navbar-container">
-            <NavLink to="/login">Login</NavLink>
-            <NavLink to="/signup">Sign Up</NavLink>
+            <Link to={linkTarget}>Login</Link>
+            <Link to="/signup">Sign Up</Link>
         </div>
+
+
     )
-    }
 }
 
 

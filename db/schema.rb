@@ -18,12 +18,14 @@ ActiveRecord::Schema.define(version: 2022_04_28_151806) do
     t.string "product_origin"
     t.string "vendor"
     t.string "brand"
+    t.string "category"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "reviews", force: :cascade do |t|
     t.string "product_description"
+    t.integer "rating"
     t.integer "product_id"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
