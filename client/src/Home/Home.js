@@ -1,5 +1,7 @@
 import {React, useEffect, useState} from "react"
+import { useHistory} from "react-router-dom"
 import "./Home.css"
+import ReviewCard from "../ReviewCard/ReviewCard"
 
 
 
@@ -9,6 +11,9 @@ function Home () {
     const [products, setProducts] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
     const [review, setReview] = useState([])
+    const [users, setUsers] = useState([])
+
+    let history = useHistory()
 
     useEffect(() => {
         fetch('/user')
@@ -20,19 +25,28 @@ function Home () {
 }, [])
 
 useEffect(() => {
-    fetch('/products')
+    fetch('/users')
     .then(resp => resp.json())
-    // .then(countriesData => {
-    //     // console.log(countriesData)
-    //     setCountries(countriesData);
-    .then( products => {
-        console.log(products)
-        setProducts(products)
-    })
+    .then(userData => {
+        setUsers(userData)
+        console.log(users)
+})
 }, [])
 
+// useEffect(() => {
+//     fetch('/products')
+//     .then(resp => resp.json())
+//     // .then(countriesData => {
+//     //     // console.log(countriesData)
+//     //     setCountries(countriesData);
+//     .then( products => {
+//         console.log(products)
+//         setProducts(products)
+//     })
+// }, [])
+
 useEffect(() => {
-    fetch('/reviews]')
+    fetch('/reviews')
     .then(resp => resp.json())
     // .then(countriesData => {
     //     // console.log(countriesData)
@@ -40,8 +54,35 @@ useEffect(() => {
     .then( reviews => {
         console.log(reviews)
         setReview(reviews)
+        randomArrayShuffle(reviews)
     })
 }, [])
+
+const reviewsrender = review.map((review) => {
+   return <ReviewCard review={review} id={review.id} onCardClick={handleUserClick}/>
+})
+
+function randomArrayShuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
+  }
+
+  function handleUserClick(review) {
+    history.push(`/review/${review.id}`)
+    history.go(`/review/${review.id}`)
+  }
+
+ 
+
+
+
 
 
 
@@ -49,23 +90,20 @@ useEffect(() => {
     return (
         <>
         <div>
-            Home
             <input type="text" placeholder="🔍  Search & Filter ..." onChange={(event) => {setSearchTerm(event.target.value)}}></input>
-            {products.filter((val)=>{
+            {users.filter((val) => {
                 if(searchTerm === "") {
-                return null} else if (val.category.toLowerCase().includes(searchTerm.toLowerCase())) {
+                return null} else if (val.industry.toLowerCase().includes(searchTerm.toLowerCase())) {
                     return val
                 }
-            }).map((product) => {
-            return <div className="category" key={product.id}>
-            <p>{product.category}</p>
+            }).map((user) => {
+            return <div className="category" key={user.id}>
+            <p>{user.industry}</p>
             </div>
 })}
         </div>
         <div className="review-container">
-        <div className="review">
-    
-        </div>
+        {reviewsrender}
         </div>
         </>
     )

@@ -45,6 +45,9 @@ return (
           <Route exact path="/" >
             <Home />
           </Route>
+          <Route exact path="/review/:id" >
+            {/* compontent that I need to create */}
+          </Route>
       </Switch>
   </div>
 );

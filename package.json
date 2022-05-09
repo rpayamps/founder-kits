@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "mui": "^0.0.1",
+    "muicss": "^0.10.3",
     "react-router-dom": "^5.3.1"
   }
 }

@@ -1,0 +1,19 @@
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: inline-flex
+  }
+  .on {
+    color: #000;
+  }
+  .off {
+    color: #ccc;
+  }
+
+
+  .star-rating {
+    display: inline-flex;
+    justify-content: center;
+  }

@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2022_04_28_151806) do
     t.string "occupation"
     t.string "bio"
     t.string "referral_code"
+    t.string "industry"
     t.string "profile_pic"
     t.string "username"
     t.string "password_digest"
