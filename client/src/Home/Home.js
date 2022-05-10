@@ -8,10 +8,12 @@ import ReviewCard from "../ReviewCard/ReviewCard"
 
 function Home () {
     const [user, setUser] = useState([])
-    const [products, setProducts] = useState([])
+    // const [products, setProducts] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
     const [review, setReview] = useState([])
     const [users, setUsers] = useState([])
+
+
 
     let history = useHistory()
 
@@ -79,7 +81,9 @@ function randomArrayShuffle(array) {
     history.go(`/review/${review.id}`)
   }
 
- 
+//  function clickedsearchterm () {
+    
+//  }
 
 
 
@@ -90,18 +94,21 @@ function randomArrayShuffle(array) {
     return (
         <>
         <div>
-            <input type="text" placeholder="🔍  Search & Filter ..." onChange={(event) => {setSearchTerm(event.target.value)}}></input>
+        <input type="text" placeholder="🔍 Search & Filter ..." onChange={event => {setSearchTerm(event.target.value)}}/>
             {users.filter((val) => {
-                if(searchTerm === "") {
-                return null} else if (val.industry.toLowerCase().includes(searchTerm.toLowerCase())) {
+                if(searchTerm === "" ) {
+                return null
+            } else if (val.industry?.toLowerCase()?.includes(searchTerm.toLowerCase())) {
                     return val
                 }
-            }).map((user) => {
-            return <div className="category" key={user.id}>
+            }).map((user, key) => {
+            return (
+            <div className="category" key={key}>
             <p>{user.industry}</p>
             </div>
-})}
+)})}
         </div>
+        <hr></hr>
         <div className="review-container">
         {reviewsrender}
         </div>

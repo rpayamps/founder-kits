@@ -1,6 +1,7 @@
 import React from "react"
 import Rating from "../Rating/Rating"
 import "./ReviewCard.css"
+// import RatingCreation from "../RatingCreation/RatingCreation"
 
 
 function ReviewCard ({review, onCardClick}) {

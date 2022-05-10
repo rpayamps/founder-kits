@@ -5,19 +5,24 @@ import Login from "./Login/Login";
 import Home from "./Home/Home"
 import Signup from "./SignUp/SignUp"
 import Navbar from "./Navbar/Navbar"
+import ReviewPage from "./ReviewPage/ReviewPage"
+import CurrentUserProfile from "./CurrentUserProfile/CurrentUserProfile";
 
 function App() {
 
   const [user, setUser] = useState(null);
+  const [review, setReview] = useState([])
 
   useEffect(() => {
     // auto-login
     fetch("/me").then((resp) => {
       if (resp.ok) {
-        resp.json().then((user) => setUser(user));
+        resp.json().then((user) => setUser(user))
+        console.log(user);
       }
     });
   }, []);
+
 
 
 
@@ -36,17 +41,23 @@ return (
            {/* <Route path="/mypage">
             <MyPage/>
           </Route> */}
-          <Route  path="/login">
+          <Route exact path="/login">
             <Login onLogin={handlelogin} setUser={setUser}/>
           </Route>
-          <Route  path="/signup">
+          <Route  exact path="/signup">
             <Signup setUser={setUser} onLogin={handlelogin}/>
           </Route> 
+          <Route exact path="/review/:id" >
+            <ReviewPage />
+          </Route>
+          <Route exact path ="/profile">
+            <CurrentUserProfile/>
+          </Route>
           <Route exact path="/" >
             <Home />
           </Route>
-          <Route exact path="/review/:id" >
-            {/* compontent that I need to create */}
+          <Route exact path="/home" >
+            <Home />
           </Route>
       </Switch>
   </div>
