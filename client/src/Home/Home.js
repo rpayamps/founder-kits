@@ -61,7 +61,7 @@ useEffect(() => {
 }, [])
 
 const reviewsrender = review.map((review) => {
-   return <ReviewCard review={review} id={review.id} onCardClick={handleUserClick}/>
+   return <ReviewCard review={review} id={review.id} onCardClick={handleReviewClick}/ >
 })
 
 function randomArrayShuffle(array) {
@@ -76,14 +76,14 @@ function randomArrayShuffle(array) {
     return array;
   }
 
-  function handleUserClick(review) {
+  function handleReviewClick(review) {
     history.push(`/review/${review.id}`)
     history.go(`/review/${review.id}`)
   }
 
-//  function clickedsearchterm () {
-    
-//  }
+
+
+
 
 
 
@@ -94,7 +94,7 @@ function randomArrayShuffle(array) {
     return (
         <>
         <div>
-        <input type="text" placeholder="🔍 Search & Filter ..." onChange={event => {setSearchTerm(event.target.value)}}/>
+        <input className="search-filter" type="text" placeholder="🔍 Search & Filter ..." onChange={event => {setSearchTerm(event.target.value)}}/>
             {users.filter((val) => {
                 if(searchTerm === "" ) {
                 return null

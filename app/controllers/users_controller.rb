@@ -16,9 +16,19 @@ class UsersController < ApplicationController
         if user
           render json: user
         else
-          render json: { error: "Not authorized" }, status: :unauthorized
+          render json: { error: "Users not Found" }, status: :not_found
         end
     end
+
+    def showone
+      user = User.find_by(id: params[:id])
+      if user
+        render json: user
+      else
+        render json: { error: "User not Found" }, status: :not_found
+      end
+  end
+    
 
     def create
       user = User.create(user_params)
@@ -28,11 +38,26 @@ class UsersController < ApplicationController
         render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
       end
     end
+
+    def update
+      user = User.find_by(id: params[:id])
+      if user
+        user.update(update_params)
+      else
+      render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
+      end 
+    end
   
     private
+
+    def update_params 
+      params.permit(:location, :occupation, :bio, :referral_code, :industry, :profile_pic, :username)
+    end
   
     def user_params
       params.permit(:username, :password, :password_confirmation)
     end
+
+    
 
 end

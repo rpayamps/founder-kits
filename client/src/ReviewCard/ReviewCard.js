@@ -14,7 +14,7 @@ function ReviewCard ({review, onCardClick}) {
         <div className="img-container">
         <img src={review.user.profile_pic} alt="profile_pic" className="profile-pic"/>
         </div>
-        <h2>{review.user.name}</h2>
+        <h2>{review.user.first_name} {review.user.last_name}</h2>
         <p>{review.user.industry}</p>
         <Rating review={review}/>
         <p classname="review-description">{review.product_description}</p>

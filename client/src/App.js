@@ -1,5 +1,6 @@
 import {React, useEffect, useState} from "react"
 import { Route, Switch } from 'react-router';
+import { useHistory, useParams } from "react-router-dom"
 import './App.css';
 import Login from "./Login/Login";
 import Home from "./Home/Home"
@@ -7,11 +8,21 @@ import Signup from "./SignUp/SignUp"
 import Navbar from "./Navbar/Navbar"
 import ReviewPage from "./ReviewPage/ReviewPage"
 import CurrentUserProfile from "./CurrentUserProfile/CurrentUserProfile";
+import UserProfile from "./UserProfile/UserProfile";
+// import { useParams } from "react-router-dom";
 
 function App() {
 
+  let history = useHistory()
+
+  let { id } = useParams();
+  console.log(id)
+
+  
   const [user, setUser] = useState(null);
-  const [review, setReview] = useState([])
+    
+  // const [users, setUsesr] = useState([]);
+  // const [review, setReview] = useState([])
 
   useEffect(() => {
     // auto-login
@@ -31,6 +42,17 @@ function App() {
     setUser(user)
   }
 
+  function handleUserClick(id) {
+    history.push(`/users/${id}`)
+    history.go(`/users/${id}`)
+  }
+
+  function handleReviewClick(review) {
+    history.push(`/review/${review.id}`)
+    history.go(`/review/${review.id}`)
+  }
+
+
 return (
   <div className="App">
     <Navbar user={user}/>
@@ -48,10 +70,13 @@ return (
             <Signup setUser={setUser} onLogin={handlelogin}/>
           </Route> 
           <Route exact path="/review/:id" >
-            <ReviewPage />
+            <ReviewPage onUserClick={handleUserClick} />
           </Route>
           <Route exact path ="/profile">
-            <CurrentUserProfile/>
+            <CurrentUserProfile onCardClick={handleReviewClick}/>
+          </Route>
+          <Route exact path ="/users/:id">
+            <UserProfile onCardClick={handleReviewClick}/>
           </Route>
           <Route exact path="/" >
             <Home />

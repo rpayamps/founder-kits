@@ -8,7 +8,7 @@ import "./ReviewPage.css"
 
 
 
-function ReviewPage () {
+function ReviewPage ({onUserClick }) {
 
     const [review, setReview] = useState([])
     const [buttonPopup, setButtonPopup] = useState(false)
@@ -44,7 +44,7 @@ function ReviewPage () {
 
         <div className="reviewpage-container">
         <div className="reviewpage-image-container">
-         <img src={review.user.profile_pic} alt="profile_pic" className="profile-pic"/>
+         <img src={review.user.profile_pic} alt="profile_pic" onClick={() => onUserClick(review.user.id)} className="profile-pic"  />
         </div>
         <h2>{review.user.name}</h2>
         <p>{review.user.industry}</p>

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   
   get '/users', to: "users#index"
+  get '/users/:id', to: "users#showone"
+  post '/users/:id', to: "users#update"
   post "/signup", to: "users#create"
   get "/me", to: "users#show"
   post "/login", to: "sessions#create"

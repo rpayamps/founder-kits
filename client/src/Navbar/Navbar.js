@@ -28,16 +28,16 @@ return (
     user ? 
       <div className='navbar-container'>
         <header className="navbar-header">
-              <a href="#" className='home' onClick={() => handleClick("/home") }>Home</a>
+              <a href="#" className='home-link' onClick={() => handleClick("/home") }>Home</a>
               <a href="#" className='profile' onClick={() => handleClick("/profile") }>Profile</a>
-             <button className="button" onClick={handleLogout}>Logout</button>
+             <button className="login-button" onClick={handleLogout}>Logout</button>
         </header> 
-        <h2> ,  {user.username}</h2>
+        <h2 className="navbar-h2"> ,  {user.username}</h2>
         </div>  
          :
         <div className="navbar-container-no-user">
-            <a href="#" onClick={() => handleClick("/login") }>Login</a>
-            <a href="#" onClick={() => handleClick("/signup") }>Sign Up</a>
+            <a className="a-login" href="#" onClick={() => handleClick("/login") }>Login</a>
+            <a className="a-login" href="#" onClick={() => handleClick("/signup") }>Sign Up</a>
         </div>
 
 

@@ -2,6 +2,7 @@ class User < ApplicationRecord
     validates :username, uniqueness: true 
     has_many :reviews
     has_many :products, through: :reviews 
+    accepts_nested_attributes_for :reviews, allow_destroy: true
 
     has_secure_password
 
