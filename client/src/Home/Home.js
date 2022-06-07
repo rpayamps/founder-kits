@@ -84,6 +84,11 @@ function randomArrayShuffle(array) {
   }
 
 
+  function handleSeacrhTermClick(user) {
+   setSearchTerm(user.industry.toUpperCase())
+  }
+
+
 
 
 
@@ -97,7 +102,7 @@ return (
         <>
         <div className="home">
         <div className="seacrh-bar">
-            <input className="search-filter" type="text" placeholder="🔍 Search & Filter ..." onChange={event => {setSearchTerm(event.target.value)}}/>
+            <input className="search-filter" type="text" value={searchTerm} placeholder="🔍 Search & Filter ..." onChange={event => {setSearchTerm(event.target.value)}}/>
                 {users.filter((val) => {
                     if(searchTerm === "" ) {
                     return null
@@ -106,7 +111,7 @@ return (
                     }
                 }).map((user, key) => {
                 return (
-                <div className="category" key={key}>
+                <div className="category" key={key} onClick={() => handleSeacrhTermClick(user)}>
                 <p>{user.industry}</p>
         </div>
 )})}

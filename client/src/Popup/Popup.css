@@ -12,16 +12,27 @@
 }
 
 .popup-inner {
+    display: flex;
+    align-items: center;
+
     position: relative;
     padding: 32px;
     width: 100%;
     max-width: 640px;
-    background-color: white;
+    background-color: #2b6777;
 }
 
 .popup-inner .close-btn{
+    color: white;
     position: absolute;
     top: 16px;
     right: 16px;
-    display: inline-block
+    display: inline-block;
+    cursor: pointer;
 }
+
+.popup-inner .close-btn{
+
+}
+
+

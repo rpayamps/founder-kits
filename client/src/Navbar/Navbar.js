@@ -28,9 +28,12 @@ return (
 <>
 
 <nav>
-<motion.a href="#" className='logo' onClick={() => handleClick("/home") }
+<motion.div
+className='logo-container'
 whileHover={{ scale: 1.1,}} 
-> Founders <strong style={{color: "2b6777"}}>Kits</strong> </motion.a>
+>
+<a href="#" className='logo' onClick={() => handleClick("/home") }> Founders <strong style={{color: "2b6777"}}>Kits</strong> </a>
+</motion.div>
     {user ? 
       <div className='navbar-container'>
         <ul className="navbar-header">

@@ -65,23 +65,33 @@ margin-top: 2%;
 .navbar-container-no-user{
     display: inline;
     font-size: 1.2em;
-
-    padding-bottom: 5%;
-    text-decoration: none;
-    color: black;
-    list-style: none;
+    padding-bottom: 2%;
+    width: 100%;
+    height: 75px;
+   margin-top: 2%;
+    /* padding-left: 45% */
 }
 
 .navbar-container-no-user ul{  
     display: flex;
-    position: relative;
     list-style: none;
-    margin: 0;
-     padding: 2.5%;
      align-items: center;
-     justify-content: center;
-     text-decoration: none;
-     color: black
+     float: right;
+     margin-right: 3%;
+     
+}
+
+.navbar-container-no-user ul li {
+    display: inline-block;
+}
+
+.navbar-container-no-user ul li a {
+    color:#52ab98;
+    font-size: 2rem;
+    font-family: 'Indie Flower', cursive;
+    font-weight: 400;
+    padding: 0 25px 0 0;
+    white-space:nowrap;
 }
 
 
@@ -95,6 +105,12 @@ nav{
     align-items: center;
 }
 
+.logo-container {
+    width: auto;
+    position: relative;
+    left: 7%;
+}
+
 
 .logo{
     font-size: 3rem;
@@ -104,6 +120,7 @@ nav{
     font-weight: 600;
     text-decoration: none;
     margin-left: 3%;
+    white-space:nowrap;
 }
 
 

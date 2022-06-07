@@ -11,6 +11,23 @@
 }
 
 
+.home {
+    margin: 0 100px
+}
+
+.img-container p{
+    font-family: 'Indie Flower';
+    font-weight: 400;
+}
+
+
+.reviewpage-container * {
+    font-family: 'Indie Flower';
+    font-weight: 400;
+    color: white
+}
+
+
 
 
 
