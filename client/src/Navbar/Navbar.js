@@ -1,7 +1,8 @@
 import React from 'react'
-import {Link, useHistory} from "react-router-dom"
+import {useHistory} from "react-router-dom"
+import {motion} from 'framer-motion'
 import "./Navbar.css"
-import Home from "../Home/Home"
+
 
 
 
@@ -24,22 +25,49 @@ function Navbar ({onLogout, user}) {
 
 
 return (
+<>
 
-    user ? 
+<nav>
+<motion.a href="#" className='logo' onClick={() => handleClick("/home") }
+whileHover={{ scale: 1.1,}} 
+> Founders <strong style={{color: "2b6777"}}>Kits</strong> </motion.a>
+    {user ? 
       <div className='navbar-container'>
-        <header className="navbar-header">
-              <a href="#" className='home-link' onClick={() => handleClick("/home") }>Home</a>
+        <ul className="navbar-header">
+              <motion.li
+               whileHover={{ scale: 1.3,
+              }}
+
+              >             
               <a href="#" className='profile' onClick={() => handleClick("/profile") }>Profile</a>
-             <button className="login-button" onClick={handleLogout}>Logout</button>
-        </header> 
-        <h2 className="navbar-h2"> ,  {user.username}</h2>
+              </motion.li>
+              <motion.li
+               whileHover={{ scale: 1.3}}
+              > 
+             <button className="login-button" onClick={handleLogout}>Logout, {user.username}</button>
+             </motion.li>
+        </ul>
         </div>  
          :
         <div className="navbar-container-no-user">
+          <ul>
+          <motion.li
+               whileHover={{ scale: 1.3,
+          
+              }}
+              > 
             <a className="a-login" href="#" onClick={() => handleClick("/login") }>Login</a>
+            </motion.li>
+            <motion.li
+               whileHover={{ scale: 1.3}}
+              > 
             <a className="a-login" href="#" onClick={() => handleClick("/signup") }>Sign Up</a>
-        </div>
+            </motion.li>
+          </ul>
+        </div>}
+</nav>
 
+    </>
 
     )
 }

@@ -2,6 +2,8 @@ import {React, useEffect, useState} from "react"
 import { useHistory} from "react-router-dom"
 import "./Home.css"
 import ReviewCard from "../ReviewCard/ReviewCard"
+import Bounce from 'react-reveal'
+import Navbar from "../Navbar/Navbar"
 
 
 
@@ -91,30 +93,34 @@ function randomArrayShuffle(array) {
 
 
 
-    return (
+return (
         <>
-        <div>
-        <input className="search-filter" type="text" placeholder="🔍 Search & Filter ..." onChange={event => {setSearchTerm(event.target.value)}}/>
-            {users.filter((val) => {
-                if(searchTerm === "" ) {
-                return null
-            } else if (val.industry?.toLowerCase()?.includes(searchTerm.toLowerCase())) {
-                    return val
-                }
-            }).map((user, key) => {
-            return (
-            <div className="category" key={key}>
-            <p>{user.industry}</p>
-            </div>
+        <div className="home">
+        <div className="seacrh-bar">
+            <input className="search-filter" type="text" placeholder="🔍 Search & Filter ..." onChange={event => {setSearchTerm(event.target.value)}}/>
+                {users.filter((val) => {
+                    if(searchTerm === "" ) {
+                    return null
+                } else if (val.industry?.toLowerCase()?.includes(searchTerm.toLowerCase())) {
+                        return val
+                    }
+                }).map((user, key) => {
+                return (
+                <div className="category" key={key}>
+                <p>{user.industry}</p>
+        </div>
 )})}
         </div>
-        <hr></hr>
+        <hr className="bar-line"></hr>
+        <Bounce>
         <div className="review-container">
         {reviewsrender}
+        </div>
+        </Bounce>
         </div>
         </>
     )
 }
 
 
-export default Home
+export default Home;
