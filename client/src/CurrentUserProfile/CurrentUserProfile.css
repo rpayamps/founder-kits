@@ -1,9 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Bree+Serif&display=swap");
-
-
-
-
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno&display=swap');
 
 .profile-header {
   background: #fff;
@@ -25,7 +22,7 @@
   border-radius: 50%;
   height: 230px;
   width: 230px;
-  border: 5px solid #fff;
+  border: 5px solid #2b6777;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   position: absolute;
   left: 50px;
@@ -38,26 +35,40 @@
 .profile-nav-info {
   float: left;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   padding-top: 60px;
+  font-family: 'Indie Flower', cursive;
+  font-weight: 400;
 }
 
 .profile-nav-info h3 {
-  font-variant: small-caps;
-  font-size: 2rem;
-  font-family: sans-serif;
-  font-weight: bold;
+  display: flex;
+  font-size: 2.5rem;
+  font-family: 'Indie Flower', cursive;
+  font-weight: 400;
+  color: #52ab98;
+  align-items: center;
 }
 
 .profile-nav-info .address {
   display: flex;
   font-weight: bold;
-  color: #777;
+  color: #52ab98;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.profile-nav-info .address span {
+  display: flex;
+ align-items: center;
 }
 
 .profile-nav-info .address p {
   margin-right: 5px;
+}
+
+.state{
+  font-size: 2rem;
 }
 
 .profile-option {
@@ -79,14 +90,14 @@
 
 .profile-option:hover {
   background: #fff;
-  border: 1px solid #e40046;
+  border: 1px solid white;
 }
 .profile-option:hover .notification i {
-  color: #e40046;
+  color: white;
 }
 
 .profile-option:hover span {
-  background: #e40046;
+  background: white;
 }
 
 .profile-option .notification i {
@@ -100,8 +111,8 @@
   top: -5px;
   right: -5px;
   background: #fff;
-  color: #e40046;
-  border: 1px solid #e40046;
+  color: white;
+  border: 1px solid white;
   padding: 5px;
   border-radius: 50%;
   height: 20px;
@@ -121,23 +132,35 @@
 
 .profile-side {
   width: 300px;
-  background: #fff;
+  background: #52ab98;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
   padding: 90px 30px 20px;
-  font-family: "Bree Serif", serif;
+  font-family: 'Indie Flower';
   margin-left: 10px;
   z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .profile-side p {
   margin-bottom: 7px;
-  color: #333;
-  font-size: 14px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .profile-side p i {
-  color: #e40046;
+  color: white;
   margin-right: 10px;
+}
+
+.bio-title{
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
 }
 
 .mobile-no i {
@@ -155,7 +178,7 @@ button.createbtn {
   padding: 10px;
   width: 100%;
   border-radius: 3px;
-  background: #e40046;
+  background: white;
   color: #fff;
   font-family: "Bree Serif";
   font-size: 1rem;
@@ -223,12 +246,16 @@ button.createbtn i {
   cursor: pointer;
   text-align: center;
   transition: all 0.2s ease-in-out;
+  font-size: 2rem;
+  font-family: 'Indie Flower', cursive;
+  font-weight: 400;
+  color: white;
 }
 
-.nav ul li:hover,
+/* .nav ul li:hover,
 .nav ul li.active {
-  box-shadow: 0px -3px 0px rgba(288, 0, 70, 0.9) inset;
-}
+  box-shadow: 0px -3px 0px white inset;
+} */
 
 .profile-body {
   width: 100%;
@@ -237,12 +264,31 @@ button.createbtn i {
   
 }
 
+.profile-body h1{
+  font-family: 'Indie Flower', cursive;
+  color: white;
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  margin: 2.5%;
+}
+
+.profile-body p{
+  max-width: 1000px;
+  /* color: white; */
+  font-size: 1rem;
+  font-family: 'Indie Flower'
+}
+
 .content{
   display: none;
 }
 
 .active-content{
- display:block
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
 }
 
 .tab {
@@ -328,11 +374,10 @@ button.createbtn i {
 
 @media (max-width: 400px) {
   body {
-    margin: ;
+    margin: 0 ;
   }
 
-  .profile-header h3 {
-  }
+ 
 
   .profile-option {
     width: 30px;
@@ -367,10 +412,91 @@ button.createbtn i {
   text-transform: lowercase;
 }
 .tab h1 {
-  font-family: "Bree Serif", sans-serif;
+  font-family: 'Indie Flower', cursive;
+  color: white;
+  font-size: 2rem;
   display: flex;
   justify-content: center;
   margin: 20px auto;
 }
+
+
+.right-side {
+  height: 100vh;
+  width: 100%;
+}
+
+.profile-review-container{
+  display: flex;
+    justify-content: center;
+    width: 400px;
+    box-shadow: 0px 3px 8px #d3d3d3;
+    border-radius: 25px;
+    padding: 2.5%;
+    background-color: white;
+    height: 100%;
+    flex-wrap: wrap;
+    margin: 2.5%;
+}
+
+.update-profile-form-container{
+
+}
+
+.group{
+  margin: 5%;
+  
+}
+
+.group input{
+  padding: 2.5%;
+  width: 300px;
+  outline: none;
+  font-family: 'Indie Flower', cursive;
+  font-weight: 400;
+}
+
+.group input[type='text']:focus{
+  border-color: #ced4da; /* default B5 color or set your own color*/
+  border: none !important; /* if you want to remove borders at all*/
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.group-rating{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 3.5rem;
+  padding: 5%;
+}
+
+.star-rating span {
+  font-size: 3rem;
+}
+
+.sumbit-update-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: white;
+  outline:#fff;
+  cursor: pointer;
+  font-family: 'Indie Flower';
+  font-weight: 400;
+  font-size: 1.5rem;
+  padding: 2.5%;
+}
+
+.sumbit-update-button-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
 
 

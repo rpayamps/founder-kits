@@ -1,6 +1,7 @@
-import {React, useEffect, useState} from "react"
+import {React, useEffect} from "react"
 import {useParams} from "react-router-dom"
 import Rating from "../Rating/Rating"
+import './UserReview.css'
 
 
 
@@ -19,7 +20,7 @@ function UserReviewSection ({onCardClick}) {
     })
 
     const reviews = users.map((review) => {
-        return <div className="container" onClick={() => onCardClick(review)}>
+        return <div className="user-proflie-container" onClick={() => onCardClick(review)}>
     
         <div className="img-container">
         <img src={review.user.profile_pic} alt="profile_pic" className="profile-pic"/>

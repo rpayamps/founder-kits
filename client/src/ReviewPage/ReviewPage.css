@@ -60,9 +60,9 @@
   }
   .discount-code {
     position: relative;
-    left: 20%;
+    left: 12.5%;
     border: 2px dotted #535151;
-    min-width: 300px;
+    min-width: 400px;
     display: inline-block;
     font-size: 22px;
     font-weight: 700;
@@ -89,14 +89,13 @@
   }
   .discount-copied {
     font-size: .2rem;
-    position: relative;
-    top: 5px;
     padding: 16px;
     display: flex;
     color: white;
     border-radius: 30px;
-    background-color: #2b6777; 
-
+    background-color: #2b6777;
+    align-items: center;
+    justify-content: center; 
   }
 
 

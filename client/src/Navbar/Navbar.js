@@ -15,7 +15,8 @@ function Navbar ({onLogout, user}) {
         console.log("logout clicked")
         fetch("/logout", {
           method: "DELETE",
-        }).then(() => onLogout());
+        }).then(() => 
+          onLogout());
       }
 
       function handleClick(route) {
@@ -30,7 +31,8 @@ return (
 <nav>
 <motion.div
 className='logo-container'
-whileHover={{ scale: 1.1,}} 
+whileHover={{ scale: 1.1,
+  textShadow: "1px 1px 1px #000",}} 
 >
 <a href="#" className='logo' onClick={() => handleClick("/home") }> Founders <strong style={{color: "2b6777"}}>Kits</strong> </a>
 </motion.div>
@@ -39,15 +41,17 @@ whileHover={{ scale: 1.1,}}
         <ul className="navbar-header">
               <motion.li
                whileHover={{ scale: 1.3,
+                textShadow: "1px 1px 1px #000",
               }}
 
               >             
               <a href="#" className='profile' onClick={() => handleClick("/profile") }>Profile</a>
               </motion.li>
               <motion.li
-               whileHover={{ scale: 1.3}}
+               whileHover={{ scale: 1.3,
+                textShadow: "1px 1px 1px #000"}}
               > 
-             <button className="login-button" onClick={handleLogout}>Logout, {user.username}</button>
+             <button className="login-button" onClick={() => {handleLogout(); handleClick("/home")}}>Logout, {user.username}</button>
              </motion.li>
         </ul>
         </div>  
@@ -56,13 +60,15 @@ whileHover={{ scale: 1.1,}}
           <ul>
           <motion.li
                whileHover={{ scale: 1.3,
+                textShadow: "1px 1px 1px #000",
           
               }}
               > 
             <a className="a-login" href="#" onClick={() => handleClick("/login") }>Login</a>
             </motion.li>
             <motion.li
-               whileHover={{ scale: 1.3}}
+               whileHover={{ scale: 1.3,
+                textShadow: "1px 1px 1px #000",}}
               > 
             <a className="a-login" href="#" onClick={() => handleClick("/signup") }>Sign Up</a>
             </motion.li>

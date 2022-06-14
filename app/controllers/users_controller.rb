@@ -39,7 +39,7 @@ class UsersController < ApplicationController
       end
     end
 
-    def update
+    def updates
       user = User.find_by(id: params[:id])
       if user
         user.update(update_params)
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     private
 
     def update_params 
-      params.permit(:location, :occupation, :bio, :referral_code, :industry, :profile_pic, :username)
+      params.permit(:location, :occupation, :bio, :referral_code, :industry, :profile_pic, :username, )
     end
   
     def user_params

@@ -18,13 +18,13 @@ puts "Product seeding..."
     p1 = Product.create(name: Faker::Commerce.product_name,  descripition: Faker::Lorem.sentences(number: 2), product_origin: Faker::Internet.url, vendor: Faker::Commerce.vendor, brand: Faker::Commerce.brand, category: Faker::Commerce.department)
     p2 = Product.create(name: Faker::Commerce.product_name,  descripition: Faker::Lorem.sentences(number: 2), product_origin: Faker::Internet.url, vendor: Faker::Commerce.vendor, brand: Faker::Commerce.brand, category: Faker::Commerce.department)
     p3 = Product.create(name: Faker::Commerce.product_name,  descripition: Faker::Lorem.sentences(number: 2), product_origin: Faker::Internet.url, vendor: Faker::Commerce.vendor, brand: Faker::Commerce.brand, category: Faker::Commerce.department)
-    p4 =Product.create(name: Faker::Commerce.product_name,  descripition: Faker::Lorem.sentences(number: 2), product_origin: Faker::Internet.url, vendor: Faker::Commerce.vendor, brand: Faker::Commerce.brand,  category: Faker::Commerce.department)
+    p4 = Product.create(name: Faker::Commerce.product_name,  descripition: Faker::Lorem.sentences(number: 2), product_origin: Faker::Internet.url, vendor: Faker::Commerce.vendor, brand: Faker::Commerce.brand,  category: Faker::Commerce.department)
     p5 = Product.create(name: Faker::Commerce.product_name,  descripition: Faker::Lorem.sentences(number: 2), product_origin: Faker::Internet.url, vendor: Faker::Commerce.vendor, brand: Faker::Commerce.brand, category: Faker::Commerce.department)
     p6 = Product.create(name: Faker::Commerce.product_name,  descripition: Faker::Lorem.sentences(number: 2), product_origin: Faker::Internet.url, vendor: Faker::Commerce.vendor, brand: Faker::Commerce.brand, category: Faker::Commerce.department)
     p7 = Product.create(name: Faker::Commerce.product_name,  descripition: Faker::Lorem.sentences(number: 2), product_origin: Faker::Internet.url, vendor: Faker::Commerce.vendor, brand: Faker::Commerce.brand, category: Faker::Commerce.department)
     p8 = Product.create(name: Faker::Commerce.product_name,  descripition: Faker::Lorem.sentences(number: 2), product_origin: Faker::Internet.url, vendor: Faker::Commerce.vendor, brand: Faker::Commerce.brand, category: Faker::Commerce.department)
     p9 = Product.create(name: Faker::Commerce.product_name,  descripition: Faker::Lorem.sentences(number: 2), product_origin: Faker::Internet.url, vendor: Faker::Commerce.vendor, brand: Faker::Commerce.brand, category: Faker::Commerce.department)
-    p10 =Product.create(name: Faker::Commerce.product_name,  descripition: Faker::Lorem.sentences(number: 2), product_origin: Faker::Internet.url, vendor: Faker::Commerce.vendor, brand: Faker::Commerce.brand, category: Faker::Commerce.department)
+    p10 = Product.create(name: Faker::Commerce.product_name,  descripition: Faker::Lorem.sentences(number: 2), product_origin: Faker::Internet.url, vendor: Faker::Commerce.vendor, brand: Faker::Commerce.brand, category: Faker::Commerce.department)
    
 
 

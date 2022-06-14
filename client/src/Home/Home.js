@@ -3,20 +3,18 @@ import { useHistory} from "react-router-dom"
 import "./Home.css"
 import ReviewCard from "../ReviewCard/ReviewCard"
 import Bounce from 'react-reveal'
-import Navbar from "../Navbar/Navbar"
+
 
 
 
 
 function Home () {
+
     const [user, setUser] = useState([])
-    // const [products, setProducts] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
     const [review, setReview] = useState([])
     const [users, setUsers] = useState([])
-
-
-
+   
     let history = useHistory()
 
     useEffect(() => {
@@ -25,46 +23,34 @@ function Home () {
         .then(userData => {
             setUser(userData)
             console.log(user)
+        })
+    }, [])
+
+    useEffect(() => {
+        fetch('/users')
+        .then(resp => resp.json())
+        .then(userData => {
+            setUsers(userData)
+            console.log(users)
     })
-}, [])
+    }, [])
 
-useEffect(() => {
-    fetch('/users')
-    .then(resp => resp.json())
-    .then(userData => {
-        setUsers(userData)
-        console.log(users)
-})
-}, [])
 
-// useEffect(() => {
-//     fetch('/products')
-//     .then(resp => resp.json())
-//     // .then(countriesData => {
-//     //     // console.log(countriesData)
-//     //     setCountries(countriesData);
-//     .then( products => {
-//         console.log(products)
-//         setProducts(products)
-//     })
-// }, [])
+    useEffect(() => {
+        fetch('/reviews')
+        .then(resp => resp.json())
+        .then( reviews => {
+            console.log(reviews)
+            setReview(reviews)
+            randomArrayShuffle(reviews)
+        })
+    }, [])
 
-useEffect(() => {
-    fetch('/reviews')
-    .then(resp => resp.json())
-    // .then(countriesData => {
-    //     // console.log(countriesData)
-    //     setCountries(countriesData);
-    .then( reviews => {
-        console.log(reviews)
-        setReview(reviews)
-        randomArrayShuffle(reviews)
+    const reviewsrender = review.map((review) => {
+    return <ReviewCard review={review} id={review.id} onCardClick={handleReviewClick}/ >
     })
-}, [])
 
-const reviewsrender = review.map((review) => {
-   return <ReviewCard review={review} id={review.id} onCardClick={handleReviewClick}/ >
-})
+
 
 function randomArrayShuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
@@ -87,16 +73,6 @@ function randomArrayShuffle(array) {
   function handleSeacrhTermClick(user) {
    setSearchTerm(user.industry.toUpperCase())
   }
-
-
-
-
-
-
-
-
-
-
 
 return (
         <>

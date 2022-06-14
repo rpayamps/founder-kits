@@ -13,7 +13,7 @@ function ReviewCard ({review, onCardClick}) {
     return (    
 <>
 <Bounce>
-    <motion.div className="container" onClick={() => onCardClick(review)}
+    <motion.div className="card-container" onClick={() => onCardClick(review)}
     whileHover={{
         scale: 1.1,
         textShadow: "0px 0px 8px rgb(255,255,255)",
